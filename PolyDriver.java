@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class PolyDriver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { // Initializes several polynomials for testing
 		
 		SingleLinkedList<Term> poly1 = new SingleLinkedList<>();
 		poly1.add(new Term(3, 4));
@@ -57,23 +57,23 @@ public class PolyDriver {
 		
 	}
 	
-	private static void add(SingleLinkedList<Term> first, SingleLinkedList<Term> second) {
-		first = simplify(first);
-		second = simplify(second);
-		SingleLinkedList<Term> result = new SingleLinkedList<Term>();
+	private static void add(SingleLinkedList<Term> first, SingleLinkedList<Term> second) { // Adds two polynomials together
+		first = simplify(first);   // Combines like terms in the first polynomial before beginning the addition process
+		second = simplify(second); // Combines like terms in the second polynomial
+		SingleLinkedList<Term> result = new SingleLinkedList<Term>(); // Initialize empty list that will store the sum
 		Iterator<Term> iter1 = first.iterator();
 		Iterator<Term> iter2 = second.iterator();
 		
-		while(iter1.hasNext()) {
+		while(iter1.hasNext()) {   // Iterates through first polynomial and adds all terms to the result list
 			result.add(iter1.next());
 		}
-		while(iter2.hasNext()) {
+		while(iter2.hasNext()) {  // Iterates through second polynomial and adds all terms to the result list
 			result.add(iter2.next());
 		}
 		
-		System.out.println("1st Polynomial: " + toString(first));
-		System.out.println("2nd Polynomial: " + toString(second));
-		System.out.println("Sum: " + toString(simplify(result)) + "\n");
+		System.out.println("1st Polynomial: " + toString(first)); // Displays first polynomial for reference
+		System.out.println("2nd Polynomial: " + toString(second)); // Displays second polynomial
+		System.out.println("Sum: " + toString(simplify(result)) + "\n"); // Displays simplified result
 
 	}
 	
